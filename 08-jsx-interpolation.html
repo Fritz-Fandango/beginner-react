@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<head></head>
+<body>
+    <div id="root"></div>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+    <script type="text/babel">
+        const rootElement = document.getElementById('root');
+
+        // The text "Hello World" has 11 characters
+        // The text "" has no characters
+        const CharacterCount = ({text}) => {
+            return (
+                <div>
+                    {`The text "${text}" has `}
+                    {text.length ? <strong>{text.length}</strong> : 'No'}
+                    {' characters'}
+                </div>
+            )
+        }
+
+        const element = (
+            <React.Fragment>
+                <CharacterCount text="Hello World" />
+                <CharacterCount text="" />
+            </React.Fragment>
+        );
+        
+        ReactDOM.render(element, rootElement);
+    </script>
+</body>
