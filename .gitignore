@@ -4,7 +4,11 @@
 logs
 **/*.backup.*
 **/*.back.*
+.eslintrc.json
+package*json
 
+### dirs ###
+.vscode
 node_modules
 bower_components
 
