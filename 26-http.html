@@ -4,13 +4,6 @@
   <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
   <script type="text/babel">
-  /*
-   *
-   * This example file has a legacy API no longer valid. (see lines 78-79)
-   * TODO: Clean up file to use API in line 77 or
-   * find other POST api and configure the body accordingly
-   *
-  */
     function PokemonInfo({pokemonName}) {
       const [pokemon, setPokemon] = React.useState(null)
 
@@ -76,20 +69,21 @@
       `
 
       return window
-        .fetch(`https://pokeapi.co/api/v2/pokemon/${name}/`, {
-        // .fetch('https://graphql-pokemon.now.sh', {
+        .fetch('https://graphql-pokemon2.vercel.app/', {
+          // .fetch('https://graphql-pokemon.now.sh', { <-- this domain is dead
           // learn more about this API here: https://graphql-pokemon.now.sh/
-          method: 'GET',
+          method: 'POST',
           headers: {
-            'content-type': 'application/json;charset=UTF-8'
+            'content-type': 'application/json;charset=UTF-8',
+            'Access-Control-Allow-Origin': '*'
           },
-          // body: JSON.stringify({
-            // query: pokemonQuery,
-            // variables: {name},
-          // }),
+          body: JSON.stringify({
+            query: pokemonQuery,
+            variables: {name},
+          }),
         })
         .then(resp => resp.json())
-        // .then(response => response.data.pokemon)
+        .then(response => response.data.pokemon)
     }
 
     ReactDOM.render(<App />, document.getElementById('root'))
