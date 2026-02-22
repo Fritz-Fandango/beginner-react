@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "minimatch": "^5.1.0",
+    "minimatch": "^10.2.1",
     "minimist": "^1.2.7"
   },
   "devDependencies": {
